@@ -58,8 +58,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
       >
-        “Hoy dejo atrás los juegos de niña para abrir las puertas de un mundo lleno de sueños, esperanza y magia.  
-        Acompáñame a celebrar este hermoso comienzo llamado <b>mis quince años</b>.”
+        “Quiero celebrar mis quince con quienes más quiero, compartiendo risas, recuerdos y una linda cena juntos. Una mesa, buena compañía y mucho cariño… así quiero vivir esta noche <b> con mis personas favoritas</b>.”
       </motion.p>
 
       {/* Contador */}
