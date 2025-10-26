@@ -1,13 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🪄 Fondo general aurora */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(circle at 10% 20%, #E0A696 0%, #E0AFC6 40%, #F4D8E2 100%);
+  background-size: 200% 200%;
+  animation: auroraFlow 30s ease-in-out infinite;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: #4B1E1E;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* 🌈 Animación de movimiento del gradiente */
+@keyframes auroraFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 💫 Movimiento de luces internas */
+@keyframes auroraPulse {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.7;
+  }
+  50% {
+    background-position: 100% 50%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 50%;
+    opacity: 0.7;
+  }
+}
+
+/* ✨ Fondo aurora global animado */
+.animate-aurora-sky {
+  background: linear-gradient(135deg,
+    rgba(224,166,150,0.25),
+    rgba(224,175,198,0.35),
+    rgba(244,216,226,0.3),
+    rgba(255,255,255,0.2)
+  );
+  background-size: 400% 400%;
+  animation: auroraPulse 30s ease-in-out infinite;
+  filter: blur(120px);
+}
+
+/* 💡 Brillo tipo aurora en secciones */
+.animate-aurora {
+  background: linear-gradient(125deg,
+    rgba(224,166,150,0.4),
+    rgba(224,175,198,0.5),
+    rgba(244,216,226,0.4)
+  );
+  background-size: 400% 400%;
+  animation: auroraPulse 25s ease-in-out infinite;
+  filter: blur(80px);
+}
+
+/* 🌸 Estrellitas sutiles */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 3px 3px;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 🌟 Titulares con brillo */
+.glow-title {
+  text-shadow: 0 0 10px rgba(255,255,255,0.8),
+               0 0 20px #E0AFC6,
+               0 0 40px #E0A696;
+}
+
+/* 🎀 Scroll personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#E0AFC6, #E0A696);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
+@keyframes subtleGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(224, 175, 198, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(224, 175, 198, 0.8), 0 0 25px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.animate-glow {
+  animation: subtleGlow 3s ease-in-out infinite;
+}
+
+@keyframes subtleGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(255, 220, 235, 0.6), 0 0 15px rgba(255, 230, 245, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 240, 250, 0.9), 0 0 25px rgba(255, 200, 220, 0.7);
+  }
+}
+
+.animate-glow {
+  animation: subtleGlow 4s ease-in-out infinite;
+}
+
+
+@layer base {
+  .font-allura {
+    font-family: 'Allura', cursive;
+  }
+}
+
+
+/* contenedor necesario para poder posicionar el ::before */
+.title-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* ===== TÍTULO: Mis 15 Años ===== */
+/* Capa de RELLENO (sin borde) */
+.title-fill {
+  font-family: 'Allura', cursive;
+  font-weight: 500;
+  color: transparent;
+  -webkit-text-fill-color: transparent;                 /* asegura relleno transparente real */
+  background: linear-gradient(180deg, #fff 0%, #ffe6f0 40%, #ffd2df 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  letter-spacing: 1.6px;
+  animation: floatTitle 5s ease-in-out infinite alternate;
+  /* NO uses text-shadow fuerte aquí; lo pondremos muy sutil */
+  text-shadow: 0 0 6px rgba(255, 220, 235, 0.5);
+}
+
+
+
+/* ===== NOMBRE ===== */
+.name-fill {
+  font-family: 'Allura', cursive;
+  font-weight: 500;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(180deg, #fff 0%, #ffdbe7 50%, #f2a8b7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  letter-spacing: 1.1px;
+  animation: floatName 5.2s ease-in-out infinite alternate;
+  text-shadow: 0 0 6px rgba(255, 220, 230, 0.45);
+}
+
+
+
+/* Flotación */
+@keyframes floatTitle {
+  0%   { transform: translateY(0)   scale(1.02); opacity: 1;   }
+  50%  { transform: translateY(-6px) scale(1.03); opacity: .98; }
+  100% { transform: translateY(0)   scale(1.02); opacity: 1;   }
+}
+@keyframes floatName {
+  0%   { transform: translateY(0)   scale(1.01); opacity: .97; }
+  50%  { transform: translateY(-5px) scale(1.02); opacity: 1;  }
+  100% { transform: translateY(0)   scale(1.01); opacity: .97; }
 }
